@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../icon/favicon.ico">
+
+    <title>Sign-In To The Account</title>
+    <script type="text/javascript">
+
+  function checkForm(form)
+  {
+
+    if(form.pwd1.value != "" && form.pwd1.value == form.pwd2.value) {
+      if(form.pwd1.value.length < 6) {
+        alert("Password must contain at least six characters!");
+        form.pwd1.focus();
+        return false;
+      }
+
+      re = /[0-9]/;
+      if(!re.test(form.pwd1.value)) {
+        alert("Password must contain at least one number (0-9)!");
+        form.pwd1.focus();
+        return false;
+      }
+      re = /[a-z]/;
+      if(!re.test(form.pwd1.value)) {
+        alert("Password must contain at least one lowercase letter (a-z)!");
+        form.pwd1.focus();
+        return false;
+      }
+      re = /[A-Z]/;
+      if(!re.test(form.pwd1.value)) {
+        alert("Password must contain at least one uppercase letter (A-Z)!");
+        form.pwd1.focus();
+        return false;
+      }
+    } else {
+      alert("Passwords do not match!");
+      form.pwd1.focus();
+      return false;
+    }
+
+
+    return true;
+  }
+
+</script>
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrapcss.min.css" rel="stylesheet">
+
+
+    <link href="../css/stylelogin.css" rel="stylesheet">
+
+  </head>
+
+  <body class="text-center">
+    <form class="form-signin" onsubmit="return checkForm(this);" action="comingsoon.html" method="post">
+      <img class="mb-4" src="../images/aa.jpg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Create a new account</h1>
+      <div class="input-group">
+       <div class="input-group-prepend">
+         <span class="input-group-text" id="">First name*</span>
+       </div>
+       <input type="text" class="form-control" required>
+
+     </div>
+      <div class="input-group">
+        <input type="text" class="form-control">
+        <div class="input-group-append">
+         <span class="input-group-text" id="">Last name</span>
+        </div>
+
+
+      </div>
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input type="email" id="inputEmail" value="" class="form-control" placeholder="Email address*" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" name="pwd1" id="inputPassword" value="" class="form-control " placeholder="Password*" required>
+      <label for="inputcPassword" class="sr-only ">Confirm password</label>
+      <input type="password" name="pwd2" id="inputcPassword" value="" class="form-control"  placeholder="Confirm password*" required>
+      <p>By clicking Create Account, you agree to our <a href="comingsoon.html">Terms and Conditions</a>.</p>
+
+
+      <input class="btn btn-lg btn-primary btn-block" type="submit" value="Create account">
+
+
+    </form>
+
+  </body>
+</html>
